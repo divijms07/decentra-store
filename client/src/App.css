@@ -1,5 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  color: #333;
+}
+
 .App {
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .App-logo {
@@ -14,14 +31,126 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 3rem;
+}
+
+.app-title {
+  font-size: 3rem;
+  font-weight: 700;
   color: white;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.account-info {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.share-btn {
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.share-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+}
+
+.bg-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(45deg, #4338ca, #3b82f6);
+}
+
+.bg-animation .wave {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  transform-origin: center;
+}
+
+.bg-animation .wave-1 {
+  background: radial-gradient(circle at 50% 50%, #8b5cf6 0%, transparent 70%);
+  animation: drift 15s infinite linear;
+}
+
+.bg-animation .wave-2 {
+  background: radial-gradient(circle at 30% 40%, #6366f1 0%, transparent 70%);
+  animation: drift 25s infinite linear;
+}
+
+.bg-animation .wave-3 {
+  background: radial-gradient(circle at 70% 60%, #3b82f6 0%, transparent 70%);
+  animation: drift 20s infinite linear reverse;
+}
+
+@keyframes drift {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  to {
+    transform: rotate(360deg) scale(1.2);
+  }
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: white;
+  text-align: left;
+}
+
+.content-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
 }
 
 .App-link {
@@ -36,6 +165,7 @@
     transform: rotate(360deg);
   }
 }
+
 html {
   height: 100%;
 }
@@ -91,14 +221,10 @@ h1 {
   }
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 body {
   height: 900px;
 }
+
 header {
   text-align: center;
   width: 100%;
@@ -109,6 +235,7 @@ header {
   overflow: hidden;
   border-radius: 0 0 85% 85% / 30%;
 }
+
 header .overlay {
   width: 100%;
   height: 100%;
@@ -129,6 +256,7 @@ p {
   font-family: "Open Sans", sans-serif;
   margin-bottom: 30px;
 }
+
 .share {
   padding: 16px;
   margin-top: 10px;

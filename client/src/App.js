@@ -35,7 +35,6 @@ function App() {
           Upload.abi,
           signer
         );
-        //console.log(contract);
         setContract(contract);
         setProvider(provider);
       } else {
@@ -44,10 +43,11 @@ function App() {
     };
     provider && loadProvider();
   }, []);
+
   return (
     <>
       {!modalOpen && (
-        <button className="share" onClick={() => setModalOpen(true)}>
+        <button className="share-btn" onClick={() => setModalOpen(true)}>
           Share
         </button>
       )}
@@ -56,20 +56,42 @@ function App() {
       )}
 
       <div className="App">
-        <h1 style={{ color: "white" }}>DecentraStore</h1>
-        <div class="bg"></div>
-        <div class="bg bg2"></div>
-        <div class="bg bg3"></div>
+        <header className="App-header">
+          <h1 className="app-title">DecentraStore</h1>
+          <div className="account-info">
+            {account
+              ? `${account.substring(0, 6)}...${account.substring(
+                  account.length - 4
+                )}`
+              : "Not connected"}
+          </div>
+        </header>
 
-        <p style={{ color: "white" }}>
-          Account : {account ? account : "Not connected"}
-        </p>
-        <FileUpload
-          account={account}
-          provider={provider}
-          contract={contract}
-        ></FileUpload>
-        <Display contract={contract} account={account}></Display>
+        <div className="bg-animation">
+          <div className="wave wave-1"></div>
+          <div className="wave wave-2"></div>
+          <div className="wave wave-3"></div>
+        </div>
+
+        <div className="app-container">
+          <div className="upload-section">
+            <h2 className="section-title">Upload Image</h2>
+            <div className="content-card">
+              <FileUpload
+                account={account}
+                provider={provider}
+                contract={contract}
+              />
+            </div>
+          </div>
+
+          <div className="display-section">
+            <h2 className="section-title">Your Gallery</h2>
+            <div className="content-card">
+              <Display contract={contract} account={account} />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
