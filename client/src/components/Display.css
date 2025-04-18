@@ -1,73 +1,50 @@
-.image-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 10px;
-  grid-auto-rows: 350px;
-
-  margin: 10px;
-}
-
-.image-list img {
-  width: 250px;
-  height: 350px;
-}
-.center {
-  margin: 40px;
-}
-
-.button {
-  background-color: initial;
-  background-image: linear-gradient(-180deg, #009ffd, #2a2a72);
-  border-radius: 6px;
-  color: #ffffff;
-  padding: 5px 10px;
-  border: none;
-  font-size: 16px;
-  border-radius: 5px;
-  margin-right: 10px;
-  padding-bottom: 10px;
-}
-.button:hover {
-  box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
-}
-.address {
-  display: block;
-  margin: auto;
-  height: 30px;
-  width: 330px;
-  text-align: center;
-}
-
-input[type="text"]:focus {
-  background-color: lightblue;
-}
-
 .display-container {
   width: 100%;
 }
 
-.access-controls {
-  display: flex;
-  gap: 0.5rem;
+.image-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
   margin-bottom: 1.5rem;
 }
 
-.address-input {
-  flex: 1;
+.image-list img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.image-list img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.address {
+  width: 100%;
   padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   font-size: 0.9rem;
   transition: border-color 0.2s ease;
 }
 
-.address-input:focus {
+.address:focus {
   outline: none;
   border-color: #6366f1;
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
-.fetch-button {
+.center {
+  display: block;
+  margin: 0 auto;
+}
+
+.button {
   padding: 0.8rem 1.5rem;
   background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: white;
@@ -76,67 +53,19 @@ input[type="text"]:focus {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  white-space: nowrap;
 }
 
-.fetch-button:hover:not(.loading) {
+.button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
-.fetch-button.loading {
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
-  animation: pulse 1.5s infinite;
-  cursor: not-allowed;
-}
-
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 1rem;
-  width: 100%;
-}
-
-.image-card {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  aspect-ratio: 1 / 1;
-  background-color: #f3f4f6;
-  transition: transform 0.3s ease;
-}
-
-.image-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.image-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.no-images {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  width: 100%;
-  background-color: #f9fafb;
-  border-radius: 8px;
-  color: #6b7280;
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 1rem;
-}
-
 @media (max-width: 768px) {
-  .access-controls {
-    flex-direction: column;
+  .image-list {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
   
-  .image-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  .image-list img {
+    height: 120px;
   }
 }
