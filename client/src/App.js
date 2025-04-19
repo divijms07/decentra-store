@@ -75,7 +75,7 @@ function App() {
 
         <div className="app-container">
           <div className="upload-section">
-            <h2 className="section-title">Upload Image</h2>
+            <h2 className="section-title">Upload File</h2>
             <div className="content-card">
               <FileUpload
                 account={account}
@@ -86,7 +86,7 @@ function App() {
           </div>
 
           <div className="display-section">
-            <h2 className="section-title">Your Gallery</h2>
+            <h2 className="section-title">Your Files</h2>
             <div className="content-card">
               <Display contract={contract} account={account} />
             </div>

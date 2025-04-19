@@ -4,7 +4,7 @@ import "./FileUpload.css";
 
 const FileUpload = ({ contract, account, provider }) => {
   const [file, setFile] = useState(null);
-  const [fileName, setFileName] = useState("No image selected");
+  const [fileName, setFileName] = useState("No File selected");
   const [uploading, setUploading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -30,16 +30,16 @@ const FileUpload = ({ contract, account, provider }) => {
         await contract.add(account, ImgHash);
 
         setUploading(false);
-        alert("Successfully uploaded image");
-        setFileName("No image selected");
+        alert("Successfully uploaded File");
+        setFileName("No File selected");
         setFile(null);
       } catch (e) {
         setUploading(false);
-        alert("Unable to upload image to Pinata");
+        alert("Unable to upload File to Pinata");
         console.error(e);
       }
     } else {
-      alert("Please select an image first");
+      alert("Please select an File first");
     }
   };
 
@@ -70,7 +70,7 @@ const FileUpload = ({ contract, account, provider }) => {
           />
           <label htmlFor="file-upload" className="file-label">
             <span className="file-icon">📁</span>
-            <span className="file-text">Choose Image</span>
+            <span className="file-text">Choose File</span>
           </label>
         </div>
 
@@ -85,7 +85,7 @@ const FileUpload = ({ contract, account, provider }) => {
           }`}
           disabled={!file || uploading}
         >
-          {uploading ? "Uploading..." : "Upload Image"}
+          {uploading ? "Uploading..." : "Upload File"}
         </button>
       </form>
     </div>
